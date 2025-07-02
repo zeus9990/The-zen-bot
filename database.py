@@ -3,25 +3,6 @@ import config
 from datetime import datetime, timezone
 import random
 
-# data_set = {
-#     "userid": 727792852859059,
-#     "username": "zeus",
-#     "shards": 980,
-#     "role_shards": 1000,
-#     "roles": {"472874782773587": {"reward":2000, "claimed": True},
-#               "148723488487475": {"reward":500, "claimed": False}},
-#     "wallet": "none",
-#     "quiz_data": {"played": False, "total_quizzes": 0, "last_points": 0, "last_quiz": "28-06-2025"},
-#     "checkin_data": {"checked_in": False, "total_checkins": 0, "last_checkin_points": 0, "last_checkin": "28-06-2025"},
-#     "played_quizzes": []
-# }
-
-# quiz_data = {
-#     "question": "what's the color of the sky?",
-#     "options": {"A": "Red", "B": "Blue", "C": "Green", "D": "Yellow"},
-#     "correct": "Blue"
-# }
-
 database = motor.motor_asyncio.AsyncIOMotorClient(config.DB_URL)
 zenrock = database["Zenrock"]
 userdata = zenrock["userdata"]
@@ -291,3 +272,23 @@ async def reset_daily_flags() -> dict:
         }
     )
     return {"success": True, "message": "Daily flags reset completed."}
+
+
+# data_set = {
+#     "userid": 727792852859059,
+#     "username": "zeus",
+#     "shards": 980,
+#     "role_shards": 1000,
+#     "roles": {"472874782773587": {"reward":2000, "claimed": True},
+#               "148723488487475": {"reward":500, "claimed": False}},
+#     "wallet": "none",
+#     "quiz_data": {"played": False, "total_quizzes": 0, "last_points": 0, "last_quiz": "28-06-2025"},
+#     "checkin_data": {"checked_in": False, "total_checkins": 0, "last_checkin_points": 0, "last_checkin": "28-06-2025"},
+#     "played_quizzes": []
+# }
+
+# quiz_data = {
+#     "question": "what's the color of the sky?",
+#     "options": {"A": "Red", "B": "Blue", "C": "Green", "D": "Yellow"},
+#     "correct": "Blue"
+# }
