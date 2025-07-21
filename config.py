@@ -2,6 +2,9 @@ import os
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 DB_URL = os.environ.get("DB_URL")
-ROLE_REWARD = {"676767676767676767": ["zengurd", 500],
-               "1268395930499944539": ["zendesciple", 1000]}
+ROLE_REWARD = {"1316232347816955964": ["zenMiner | Zenrock", 1000],
+               "1268395930499944539": ["zenDisciple | Zenrock", 2500],
+               "1268396133236084766": ["zenMaster | Zenrock", 10000],
+               "1268396272855941224": [".zen | Zenrock", 20000],
+               "1362246524066861267": ["ROCK 1 | Zenrock", 30000]}
 RUNNER = [1226891544334700667]
