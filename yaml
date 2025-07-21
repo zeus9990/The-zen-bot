@@ -1,4 +1,0 @@
-      - name: Run bot
-        run: |
-          export BOT_TOKEN=${{ secrets.BOT_TOKEN }}
-          python main.py
