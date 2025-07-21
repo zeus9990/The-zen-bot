@@ -20,13 +20,13 @@ class CaptchaView(discord.ui.View):
             view = self.view_ref
             if view.answers[self.index] == view.correct_answer:
                 data = await daily_checkin(interaction.user.id, interaction.user.name)
-                embed = discord.Embed(description=f"**{data['message']}**", color=0x66FF00)
+                embed = discord.Embed(description=f"**{data['message']}**", color=0x4FEB28)
             else:
-                embed = discord.Embed(description=f"**Oops {interaction.user.mention}! Your answer was not correct. Try again!**", color=0xFF0000)
+                embed = discord.Embed(description=f"**Oops {interaction.user.mention}! Your answer was not correct. Try again!**", color=0xED1919)
             await interaction.response.edit_message(embed=embed, view=None)
 
     async def on_timeout(self):
         try:
-            await self.msg.edit(embed=discord.Embed(description="⏰ **Time's up! You took longer than 1 minute.**", color=0xFF0000), view=None)
+            await self.msg.edit(embed=discord.Embed(description="⏰ **Time's up! You took longer than 1 minute.**", color=0xED1919), view=None)
         except:
             pass
