@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 import os
 load_dotenv()
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-DB_URL = os.environ.get("DB_URL")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+DB_URL = os.getenv("DB_URL")
 ROLE_REWARD = {"1316232347816955964": ["zenMiner | Zenrock", 1000],
                "1268395930499944539": ["zenDisciple | Zenrock", 2500],
                "1268396133236084766": ["zenMaster | Zenrock", 10000],
