@@ -64,8 +64,8 @@ class Panel(commands.Cog):
     async def check_in(self, interaction: discord.Interaction, channel: discord.TextChannel):
         if await self.check(interaction):
             url = self.bot.user.display_avatar.url
-            embed = discord.Embed(title="**🌟 Daily Check-In 🌟**",
-                                    description= 'Hello everyone! Time for our daily check-in. Your updates keep us all in sync. Have a great day!',
+            embed = discord.Embed(title="**🎉 Welcome to the Zenrock Daily Rewards Panel! 🎉**",
+                                    description= "Check in daily, challenge your mind with Zenrock-themed quiz questions, and earn Spartan Shards – collect exclusive rewards for community roles! 🛡️⚔️\n\n**💠 How to Participate:**\n- ✅ Daily Check-In – Earn free Spartan Shards every day you show up!\n- 🧠 Zenrock Quiz – Test your knowledge and earn bonus shards.\n- 🎖️ Role-Based Rewards – The higher your role, the more you earn!\n🔓 Climb the Ranks. Stack Your Shards. Claim Your Glory.",
                                     color=0x060f42)
             embed.set_thumbnail(url=url)
             embed.set_image(url="https://i.imgur.com/1ViskLR.png")
