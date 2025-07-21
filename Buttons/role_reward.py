@@ -11,7 +11,8 @@ class RoleSelect(discord.ui.Select):
         role_id= str(self.values[0])
         result = await claim_role_reward(interaction.user.id, role_id)
         embed = discord.Embed(
-            description=f"**{result['message']}**"
+            description=f"**{result['message']}**",
+            color=0x060f42
         )
         await interaction.response.edit_message(embed=embed, view=None)
 
