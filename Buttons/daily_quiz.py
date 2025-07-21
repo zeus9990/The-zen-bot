@@ -20,11 +20,11 @@ class QuizView(discord.ui.View):
         async def callback(self, interaction: discord.Interaction):
             view: QuizView = self.view
             data = await submit_answer(user_id=interaction.user.id, quiz_id=view.quiz_id, selected_answer=self.answer_text)
-            embed = discord.Embed(description=f"{data['message']}", color=0x66FF00)
+            embed = discord.Embed(description=f"{data['message']}", color=0x4FEB28)
             await interaction.response.edit_message(embed=embed, view=None)
 
     async def on_timeout(self):
         try:
-            await self.msg.edit(embed=discord.Embed(description="⏰ **Time's up! You took longer than 2 minutes.**", color=0xFF0000), view=None)
+            await self.msg.edit(embed=discord.Embed(description="⏰ **Time's up! You took longer than 2 minutes.**", color=0xED1919), view=None)
         except:
             pass
