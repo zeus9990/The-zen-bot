@@ -17,7 +17,7 @@ class UserCog(commands.Cog):
         data = await get_leaderboard(interaction.user.id)
         dt = discord.utils.utcnow()
         embed = discord.Embed(title="**🏆 Leaderboard of top 10 Shard holders!!**",
-                              description=data, color=0x5bcff5)
+                              description=data, color=0x060f42)
         embed.set_image(url="https://imgur.com/1ViskLR.png")
         embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
         embed.timestamp = dt
@@ -34,7 +34,7 @@ class UserCog(commands.Cog):
         if data['success']:
             dt = discord.utils.utcnow()
             embed = discord.Embed(title=f"**Your server Rank: {data['message']['rank']}**",
-                                description=f"> • **Username: `{data['message']['username']}`**\n> • **Total Shards: `{data['message']['shards']}`**", color=0x5bcff5)
+                                description=f"> • **Username: `{data['message']['username']}`**\n> • **Total Shards: `{data['message']['shards']}`**", color=0x060f42)
             embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
             embed.timestamp = dt
             await interaction.followup.send(embed=embed)
