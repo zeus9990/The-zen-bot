@@ -66,7 +66,7 @@ class Panel(commands.Cog):
             url = self.bot.user.display_avatar.url
             embed = discord.Embed(title="**🌟 Daily Check-In 🌟**",
                                     description= 'Hello everyone! Time for our daily check-in. Your updates keep us all in sync. Have a great day!',
-                                    color=0x5bcff5)
+                                    color=0x060f42)
             embed.set_thumbnail(url=url)
             embed.set_image(url="https://i.imgur.com/1ViskLR.png")
             await channel.send(embed=embed, view=Checkin_button())
@@ -86,7 +86,7 @@ class Panel(commands.Cog):
         if await self.check(interaction):
             data = await add_shards(user.id, shards)
             dt = discord.utils.utcnow()
-            embed = discord.Embed(description=f"> • **{data['message']}**", color=0x5bcff5)
+            embed = discord.Embed(description=f"> • **{data['message']}**", color=0x4FEB28)
             embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
             embed.timestamp = dt
             await interaction.followup.send(embed=embed)
@@ -107,7 +107,7 @@ class Panel(commands.Cog):
         if await self.check(interaction):
             data = await remove_shards(user.id, shards)
             dt = discord.utils.utcnow()
-            embed = discord.Embed(description=f"> • **{data['message']}**", color=0x5bcff5)
+            embed = discord.Embed(description=f"> • **{data['message']}**", color=0x4FEB28)
             embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
             embed.timestamp = dt
             await interaction.followup.send(embed=embed)
@@ -151,7 +151,7 @@ class Panel(commands.Cog):
                                         > • **User Roles:** {roles_formatted if roles else None}\n\
                                         > • **Total Quizzes Played:** {total_quiz_played}\n\
                                         > • **Total Checkins Done:** {total_check_ins}",
-                                        color=0x5bcff5)
+                                        color=0x4FEB28)
                 embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
                 embed.timestamp = dt
                 await interaction.followup.send(embed=embed)
