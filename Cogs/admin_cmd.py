@@ -65,7 +65,7 @@ class Panel(commands.Cog):
         if await self.check(interaction):
             url = self.bot.user.display_avatar.url
             embed = discord.Embed(title="**🎉 Welcome to the Zenrock Daily Rewards Panel! 🎉**",
-                                    description= "Check in daily, challenge your mind with Zenrock-themed quiz questions, and earn Spartan Shards – collect exclusive rewards for community roles! 🛡️⚔️\n\n**💠 How to Participate:**\n- ✅ Daily Check-In – Earn free Spartan Shards every day you show up!\n- 🧠 Zenrock Quiz – Test your knowledge and earn bonus shards.\n- 🎖️ Role-Based Rewards – The higher your role, the more you earn!\n🔓 Climb the Ranks. Stack Your Shards. Claim Your Glory.",
+                                    description= "Check in daily, challenge your mind with Zenrock-themed quiz questions, and earn Spartan Shards – collect exclusive rewards for community roles! 🛡️⚔️\n\n**💠 How to Participate:**\n- ✅ Daily Check-In – Earn Spartan Shards every day you show up!\n- 🧠 Zenrock Quiz – Test your knowledge and earn bonus shards.\n- 🎖️ Role-Based Rewards – The higher your role, the more you earn!\n🔓 Climb the Ranks. Stack Your Shards. Claim Your Glory.",
                                     color=0x060f42)
             embed.set_thumbnail(url=url)
             embed.set_image(url="https://i.imgur.com/1ViskLR.png")
@@ -87,7 +87,7 @@ class Panel(commands.Cog):
             data = await add_shards(user.id, shards)
             dt = discord.utils.utcnow()
             embed = discord.Embed(description=f"> • **{data['message']}**", color=0x4FEB28)
-            embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
+            embed.set_footer(icon_url=self.bot.user.avatar.url)
             embed.timestamp = dt
             await interaction.followup.send(embed=embed)
         else:
@@ -108,7 +108,7 @@ class Panel(commands.Cog):
             data = await remove_shards(user.id, shards)
             dt = discord.utils.utcnow()
             embed = discord.Embed(description=f"> • **{data['message']}**", color=0x4FEB28)
-            embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
+            embed.set_footer(icon_url=self.bot.user.avatar.url)
             embed.timestamp = dt
             await interaction.followup.send(embed=embed)
         else:
@@ -152,7 +152,7 @@ class Panel(commands.Cog):
                                         > • **Total Quizzes Played:** {total_quiz_played}\n\
                                         > • **Total Checkins Done:** {total_check_ins}",
                                         color=0x4FEB28)
-                embed.set_footer(text= f'Today at', icon_url=self.bot.user.avatar.url)
+                embed.set_footer(icon_url=self.bot.user.avatar.url)
                 embed.timestamp = dt
                 await interaction.followup.send(embed=embed)
             else:
