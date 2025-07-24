@@ -92,7 +92,7 @@ class Panel(commands.Cog):
             embed = discord.Embed(title="**🎉 Welcome to the Zenrock Daily Rewards Panel! 🎉**",
                                     description= "Check in daily, challenge your mind with Zenrock-themed quiz questions, and earn Shards – collect exclusive rewards for community roles! 🛡️⚔️\n\n**💠 How to Participate:**\n> ◆ **Daily Check-In** – Earn Shards every day you show up!\n> ◆ **Zenrock Quiz** – Test your knowledge and earn bonus shards.\n> ◆ **Role-Based Rewards** – Claim Shards for exculsive community roles!\n\n🔓 Climb the Ranks. Stack Your Shards. Claim Your Glory.",
                                     color=config.MAIN_COLOR)
-            embed.set_thumbnail(url=url)
+            #embed.set_thumbnail(url=url)
             embed.set_image(url="https://i.imgur.com/1ViskLR.png")
             await channel.send(embed=embed, view=Button_class())
             await interaction.response.send_message(f"**Check-in view is sent to {channel.mention} channel.**", ephemeral=True)
