@@ -19,7 +19,7 @@ class Paginator(discord.ui.View):
             self.next_button.disabled = True
 
         dt = discord.utils.utcnow()
-        embed = discord.Embed(title="**🏆 Leaderboard of top 10 Shard holders!!**",
+        embed = discord.Embed(title="**🏆 Leaderboard of top 50 Shard holders!!**",
                               description=self.pages[self.current_page], color=MAIN_COLOR)
         embed.set_image(url="https://imgur.com/1ViskLR.png")
         embed.set_footer(text=f'Page: {self.current_page+1}', icon_url=self.interaction.user.avatar.url)
