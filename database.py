@@ -1,7 +1,7 @@
 import motor.motor_asyncio
 import config
 from datetime import datetime, timezone
-from config import MAIN_COLOR, GREEN, RED
+from config import MAIN_COLOR, GREEN, RED, ROLE_REWARD
 import random
 
 # data_set = {
@@ -250,7 +250,7 @@ async def add_remove_role(user_id: int, role_id: str, reward: int, remove: bool)
         return {"success": True, "message": f"Removed role: {role_id} to From: {user_id}", "color": GREEN}
 
 # Claim Role Shards
-async def claim_role_reward(user_id: int, role_id: str) -> dict:
+async def claim_role_reward(user_id: int, role_id: str, user_roles: list) -> dict:
     user = await userdata.find_one({"userid": user_id})
     if not user:
         return {"success": False, "message": f"Hey <@{user_id}> you're not registered, do a daily check-in to register with the system.", "color": RED}
@@ -260,6 +260,15 @@ async def claim_role_reward(user_id: int, role_id: str) -> dict:
 
     # Check if the role and reward exist
     if not role:
+        if int(role_id) in user_roles:
+            reward = ROLE_REWARD.get(role_id, [])
+            if reward:
+                await userdata.update_one(
+                    {"userid": user_id},
+                    {
+                        "$set": {f"roles.{role_id}": {"reward": int(reward[1]), "claimed": False}}
+                    }
+                )
         return {"success": False, "message": f"Hey <@{user_id}> this role isn't currently assigned to your profile or may not have updated yet. Please try again in a few moments.", "color": RED}
     if role.get("claimed"):
         return {"success": False, "message": f"Oops <@{user_id}> looks like the reward for this <@&{role_id}> role is already claimed.", "color": RED}
@@ -286,4 +295,5 @@ async def reset_daily_flags() -> dict:
             }
         }
     )
+
     return {"success": True, "message": "Daily flags reset completed.", "color": GREEN}
