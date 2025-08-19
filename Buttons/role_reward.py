@@ -9,7 +9,8 @@ class RoleSelect(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         role_id= str(self.values[0])
-        result = await claim_role_reward(interaction.user.id, role_id)
+        user_roles = [i.id for i in interaction.user.roles]
+        result = await claim_role_reward(interaction.user.id, role_id, user_roles)
         embed = discord.Embed(
             description=f"**{result['message']}**",
             color=result['color']
@@ -19,4 +20,5 @@ class RoleSelect(discord.ui.Select):
 class RoleView(discord.ui.View):
     def __init__(self, roles: dict):
         super().__init__(timeout=None)
+
         self.add_item(RoleSelect(roles))
