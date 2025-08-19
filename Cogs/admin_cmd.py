@@ -56,7 +56,7 @@ class Button_class(discord.ui.View):
                                 description=f"> • **Username: `{data['message']['username']}`**\n> • **Total Shards: `{data['message']['shards']}`**",
                                 color=data['color'])
             embed.timestamp = dt
-            embed.set_footer(text=interaction.user.name, icon_url=interaction.user.avatar.url)
+            embed.set_footer(text=interaction.user.name, icon_url=interaction.user.display_avatar.url)
             await interaction.followup.send(embed=embed, ephemeral=True)
         else:
             await interaction.followup.send(content=f"> {data['message']}", ephemeral=True)
@@ -187,3 +187,4 @@ class Panel(commands.Cog):
 
 async def setup(bot):
     await bot.add_cog(Panel(bot))
+
