@@ -22,7 +22,7 @@ class Paginator(discord.ui.View):
         embed = discord.Embed(title="**🏆 Leaderboard of top 50 Shard holders!!**",
                               description=self.pages[self.current_page], color=MAIN_COLOR)
         embed.set_image(url="https://imgur.com/1ViskLR.png")
-        embed.set_footer(text=f'Page: {self.current_page+1}', icon_url=self.interaction.user.avatar.url)
+        embed.set_footer(text=f'Page: {self.current_page+1}', icon_url=self.interaction.user.display_avatar.url)
         embed.timestamp = dt
         self.message = await self.interaction.followup.edit_message(embed=embed, view=self, message_id=self.msg_id)
 
@@ -43,3 +43,4 @@ class Paginator(discord.ui.View):
     async def on_timeout(self):
         await self.message.edit(content="⏰ **Time's up! You took longer than 5 minutes.**", embed=None, view=None)
         self.stop()
+
