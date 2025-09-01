@@ -181,6 +181,9 @@ async def submit_answer(user_id: int, quiz_id: str, selected_answer: str) -> dic
 
     correct = quiz["correct"].strip().lower() == selected_answer.strip().lower()
     today_str = datetime.now(timezone.utc).date().isoformat()
+    if quiz_data.get("played") and quiz_data.get("last_quiz") == today_str:
+        return {"success": False, "message": f"Hey <@{user_id}> love your energy but you have already played the quiz today.", "color": RED}
+        
     if correct:
         points_awarded = random.randint(10, 30)
 
@@ -297,3 +300,4 @@ async def reset_daily_flags() -> dict:
     )
 
     return {"success": True, "message": "Daily flags reset completed.", "color": GREEN}
+
