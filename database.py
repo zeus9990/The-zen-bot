@@ -178,7 +178,8 @@ async def get_daily_quiz(user_id: int) -> dict:
 # Submit Quiz Answer
 async def submit_answer(user_id: int, quiz_id: str, selected_answer: str) -> dict:
     quiz = await quizzes.find_one({"_id": quiz_id})
-
+    user = await get_user(userid=user_id)
+    quiz_data = user['message']["quiz_data"]
     correct = quiz["correct"].strip().lower() == selected_answer.strip().lower()
     today_str = datetime.now(timezone.utc).date().isoformat()
     if quiz_data.get("played") and quiz_data.get("last_quiz") == today_str:
@@ -300,4 +301,5 @@ async def reset_daily_flags() -> dict:
     )
 
     return {"success": True, "message": "Daily flags reset completed.", "color": GREEN}
+
 
